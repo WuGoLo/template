@@ -1,0 +1,43 @@
+/* 改变主题色变量 */
+$--color-primary: rgba(16, 142, 233, 1);
+
+// /* 改变 icon 字体路径变量，必需 */
+// $--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+// @import "~element-ui/packages/theme-chalk/src/index";
+
+// element.style默认样式修改
+#app .el-container .el-aside {
+  width: 224px !important;
+  background-color: rgba(63, 63, 63, 1);
+}
+.el-menu-vertical-demo {
+  border-right: none;
+}
+.el-submenu__title {
+  background-color: rgba(63, 63, 63, 1) !important;
+  &:hover {
+    i {
+      color: #fff;
+    }
+    background-color: rgba(16, 142, 233, 1) !important;
+  }
+}
+.el-menu-item-group__title {
+  display: none;
+}
+.el-menu-item, .el-submenu__title {
+  height: 40px;
+  line-height: 40px;
+}
+.el-submenu .el-menu-item {
+  height: 36px;
+  line-height: 36px;
+  background-color: rgb(65, 68, 71) !important;
+  &:hover {
+    i {
+      color: #fff;
+    }
+    background-color: rgb(75, 79, 83) !important;
+  }
+}
