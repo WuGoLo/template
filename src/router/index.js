@@ -52,7 +52,7 @@ const constantRouterMap = [
     component: Layout,
     redirect: '/user/list',
     meta: {
-      title: '用户管理',
+      title: '用户管理'
     },
     children: [
       {
@@ -60,7 +60,7 @@ const constantRouterMap = [
         path: '/user/list',
         component: () => import('@/views/user/user'),
         meta: { noCache: true }
-      },
+      }
     ]
   },
   {
@@ -68,7 +68,7 @@ const constantRouterMap = [
     path: '/map',
     component: Layout,
     meta: {
-      title: '地图管理',
+      title: '地图管理'
     },
     children: [
       {
@@ -76,15 +76,15 @@ const constantRouterMap = [
         path: '/map/maplabel',
         component: () => import('@/views/map/label'),
         meta: { noCache: true }
-      },
+      }
 
     ]
   },
 
-  { path: '*', redirect: '/404',  component: () => import('@/views/errorPage/404') }
+  { path: '*', redirect: '/404', component: () => import('@/views/errorPage/404') }
 ]
 
-let router = new Router({
+const router = new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
@@ -92,6 +92,7 @@ let router = new Router({
 
 // 路由前置守卫
 router.beforeEach((to, from, next) => {
-  
+  console.log(to)
+  next()
 })
 export default router
