@@ -2,17 +2,8 @@
 const user = {
   state: {
     user: '',
-    status: '',
-    code: '',
     token: '',
-    name: '',
-    avatar: '',
-    introduction: '',
-    roles: [],
-    perms: [],
-    setting: {
-      articlePlatform: []
-    }
+    name: ''
   },
 
   mutations: {
@@ -20,7 +11,7 @@ const user = {
   },
 
   actions: {
-  
+
   }
 }
 

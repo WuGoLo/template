@@ -6,18 +6,18 @@
       </div>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
-          <i class="el-icon-user-solid"></i>
+          <i class="el-icon-user-solid"/>
         </span>
         <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="username" />
       </el-form-item>
 
       <el-form-item prop="password">
         <span class="svg-container">
-          <i class="el-icon-lock"></i>
+          <i class="el-icon-lock"/>
         </span>
         <el-input :type="passwordType" v-model="loginForm.password" name="password" auto-complete="on" placeholder="password" @keyup.enter.native="handleLogin" />
         <span class="show-pwd" @click="showPwd">
-          <i class="el-icon-view"></i>
+          <i class="el-icon-view"/>
         </span>
       </el-form-item>
 
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { login } from '@/api/login'
 export default {
   name: 'Login',
   data() {
@@ -46,7 +47,7 @@ export default {
       loginRules: {
         username: [{ required: true, message: '管理员账户不允许为空', trigger: 'blur' }],
         password: [
-          { required: true, message: '管理员密码不允许为空', trigger: 'blur' },
+          { required: true, message: '管理员密码不允许为空', trigger: 'blur' }
         ]
       },
       passwordType: 'password',
@@ -56,17 +57,17 @@ export default {
   watch: {
     $route: {
       handler: function(route) {
-        
+
       },
       immediate: true
     }
 
   },
   created() {
-    
+    this.handleLogin()
   },
   destroyed() {
-   
+
   },
   methods: {
     showPwd() {
@@ -77,7 +78,9 @@ export default {
       }
     },
     handleLogin() {
-
+      login().then(res => {
+        console.log(res)
+      })
     }
 
   }

@@ -15,6 +15,8 @@ import store from './store'
 
 import * as filters from './filters' // 全局引入过滤器
 
+import './mock'
+
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
 })

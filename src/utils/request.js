@@ -9,15 +9,15 @@ const service = axios.create({
   timeout: 5000 // request timeout
 })
 
-// request interceptor
+// 请求拦截器
 service.interceptors.request.use(
   config => {
     // Do something before request is sent
-    if (store.getters.token) {
-      // 让每个请求携带token-- ['X-Litemall-Admin-Token']为自定义key 请根据实际情况自行修改
-      config.headers['X-Litemall-Admin-Token'] = getToken()
-    }
-    return config
+    // if (store.getters.token) {
+    //   // 让每个请求携带token-- ['X-Beixin-Token']为自定义key 请根据实际情况自行修改
+    //   config.headers['X-Beixin-Token'] = getToken()
+    // }
+    // return config
   },
   error => {
     // Do something with request error
@@ -26,7 +26,7 @@ service.interceptors.request.use(
   }
 )
 
-// response interceptor
+// 响应拦截器
 service.interceptors.response.use(
   response => {
     const res = response.data
@@ -41,32 +41,8 @@ service.interceptors.response.use(
         })
       })
       return Promise.reject('error')
-    } else if (res.errno === 502) {
-      MessageBox.alert('系统内部错误，请联系管理员维护', '错误', {
-        confirmButtonText: '确定',
-        type: 'error'
-      })
-      return Promise.reject('error')
-    } else if (res.errno === 503) {
-      MessageBox.alert('请求业务目前未支持', '警告', {
-        confirmButtonText: '确定',
-        type: 'error'
-      })
-      return Promise.reject('error')
-    } else if (res.errno === 504) {
-      MessageBox.alert('更新数据已经失效，请刷新页面重新操作', '警告', {
-        confirmButtonText: '确定',
-        type: 'error'
-      })
-      return Promise.reject('error')
     } else if (res.errno === 505) {
-      MessageBox.alert('更新失败，请再尝试一次', '警告', {
-        confirmButtonText: '确定',
-        type: 'error'
-      })
-      return Promise.reject('error')
-    } else if (res.errno === 506) {
-      MessageBox.alert('没有操作权限，请联系管理员授权', '错误', {
+      MessageBox.alert('系统内部错误，请联系管理员维护', '错误', {
         confirmButtonText: '确定',
         type: 'error'
       })
