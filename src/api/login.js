@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login() {
   return request({
-    url: '/swipes',
+    url: 'http://localhost:7721/swipes',
     method: 'get'
   })
 }

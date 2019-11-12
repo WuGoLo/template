@@ -1,5 +1,5 @@
 
-const data1 = {
+const list1 = {
   'ret': true,
   'data|1-10': [{
     'userid': '@id()',
@@ -11,7 +11,13 @@ const data1 = {
     'email': '@email()'
   }]
 }
-
+const list2 = {
+  'data|1-10': [{
+    'id|+1': 1,
+    'email': '@EMAIL'
+  }]
+}
 export default {
-  data1
+  list1,
+  list2
 }

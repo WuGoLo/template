@@ -36,6 +36,7 @@
 
 <script>
 import { login } from '@/api/login'
+import axios from 'axios'
 export default {
   name: 'Login',
   data() {
@@ -79,7 +80,7 @@ export default {
     },
     handleLogin() {
       login().then(res => {
-        console.log(res)
+        console.log(res);
       })
     }
 

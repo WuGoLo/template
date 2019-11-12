@@ -13,11 +13,11 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // Do something before request is sent
-    // if (store.getters.token) {
-    //   // 让每个请求携带token-- ['X-Beixin-Token']为自定义key 请根据实际情况自行修改
-    //   config.headers['X-Beixin-Token'] = getToken()
-    // }
-    // return config
+    if (store.getters.token) {
+      // 让每个请求携带token-- ['X-Beixin-Token']为自定义key 请根据实际情况自行修改
+      config.headers['X-Beixin-Token'] = getToken()
+    }
+    return config
   },
   error => {
     // Do something with request error
@@ -29,30 +29,8 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   response => {
-    const res = response.data
-
-    if (res.errno === 501) {
-      MessageBox.alert('系统未登录，请重新登录', '错误', {
-        confirmButtonText: '确定',
-        type: 'error'
-      }).then(() => {
-        store.dispatch('FedLogOut').then(() => {
-          location.reload()
-        })
-      })
-      return Promise.reject('error')
-    } else if (res.errno === 505) {
-      MessageBox.alert('系统内部错误，请联系管理员维护', '错误', {
-        confirmButtonText: '确定',
-        type: 'error'
-      })
-      return Promise.reject('error')
-    } else if (res.errno !== 0) {
-      // 非5xx的错误属于业务错误，留给具体页面处理
-      return Promise.reject(response)
-    } else {
-      return response
-    }
+    const res = response
+    return response
   }, error => {
     console.log('err' + error)// for debug
     Message({
