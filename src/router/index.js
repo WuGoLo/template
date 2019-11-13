@@ -18,6 +18,11 @@ const constantRouterMap = [
     ]
   },
   {
+    path: '/',
+    redirect: '/login',
+    hidden: true
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('@/views/login/index'),
@@ -34,16 +39,20 @@ const constantRouterMap = [
     hidden: true
   },
   {
-    path: '/',
+    name: 'mapManage',
+    path: '/map',
     component: Layout,
-    redirect: 'home',
+    meta: {
+      title: '地图管理'
+    },
     children: [
       {
-        name: 'Home',
-        path: 'home',
-        component: () => import('@/views/home/index'),
-        meta: { noCache: true }
+        name: 'mapLabel',
+        path: 'maplabel',
+        component: () => import('@/views/map/label'),
+        meta: { title: '地图标注', noCache: true }
       }
+
     ]
   },
   {
