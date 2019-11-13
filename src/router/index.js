@@ -34,13 +34,13 @@ const constantRouterMap = [
     hidden: true
   },
   {
-    path: '',
+    path: '/',
     component: Layout,
     redirect: 'home',
     children: [
       {
         name: 'Home',
-        path: '/home',
+        path: 'home',
         component: () => import('@/views/home/index'),
         meta: { noCache: true }
       }
@@ -57,7 +57,7 @@ const constantRouterMap = [
     children: [
       {
         name: 'user',
-        path: '/user/list',
+        path: 'list',
         component: () => import('@/views/user/user'),
         meta: { noCache: true }
       }
@@ -73,7 +73,7 @@ const constantRouterMap = [
     children: [
       {
         name: 'mapLabel',
-        path: '/map/maplabel',
+        path: 'maplabel',
         component: () => import('@/views/map/label'),
         meta: { noCache: true }
       }
