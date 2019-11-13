@@ -64,6 +64,38 @@ const constantRouterMap = [
     ]
   },
   {
+    name: 'customerManage',
+    path: '/customer',
+    component: Layout,
+    meta: {
+      title: '客户管理'
+    },
+    children: [
+      {
+        name: 'list',
+        path: 'list',
+        component: () => import('@/views/customer/list'),
+        meta: { title: '客户列表', noCache: true }
+      }
+    ]
+  },
+  {
+    name: 'resManage',
+    path: '/resource',
+    component: Layout,
+    meta: {
+      title: '穿揽申请管理'
+    },
+    children: [
+      {
+        name: 'library',
+        path: 'library',
+        component: () => import('@/views/resource/library'),
+        meta: { title: '申请单列表', noCache: true }
+      }
+    ]
+  },
+  {
     name: 'mapManage',
     path: '/map',
     component: Layout,

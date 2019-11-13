@@ -69,16 +69,6 @@ export default {
         },
         {
           "access": "resource_access",
-          "children": null,
-          "hasSub": 1,
-          "id": 22,
-          "name": "销售合同管理",
-          "path": "/resource",
-          "showMenu": 1,
-          "url": null
-        },
-        {
-          "access": "resource_access",
           "children": [
             {
                 "access": "library_access",
@@ -86,7 +76,7 @@ export default {
                 "hasSub": 0,
                 "id": 231,
                 "name": "申请单列表",
-                "path": "resource/library",
+                "path": "/resource/library",
                 "showMenu": 1,
                 "url": null
             },
@@ -99,15 +89,15 @@ export default {
           "url": null
         },
         {
-          "access": "resource_access",
+          "access": "customer_access",
           "children": [
             {
-                "access": "library_access",
+                "access": "list_access",
                 "children": null,
                 "hasSub": 0,
-                "id": 235,
+                "id": 245,
                 "name": "客户列表",
-                "path": "resource/library",
+                "path": "/customer/list",
                 "showMenu": 1,
                 "url": null
             },
@@ -115,18 +105,18 @@ export default {
           "hasSub": 1,
           "id": 24,
           "name": "客户管理",
-          "path": "/resource",
+          "path": "/customer",
           "showMenu": 1,
           "url": null
         },
         {
-          "access": "resource_access",
+          "access": "user_access",
           "children": [
             {
-                "access": "library_access",
+                "access": "list_access",
                 "children": null,
                 "hasSub": 0,
-                "id": 235,
+                "id": 255,
                 "name": "用户列表",
                 "path": "/user/list",
                 "showMenu": 1,
@@ -134,7 +124,7 @@ export default {
             },
           ],
           "hasSub": 1,
-          "id": 24,
+          "id": 25,
           "name": "用户管理",
           "path": "/user",
           "showMenu": 1,
