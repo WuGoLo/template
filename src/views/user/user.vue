@@ -1,6 +1,6 @@
 <template>
   <div>
-    这是user
+    这是user顶顶顶顶
   </div>
 </template>
 
