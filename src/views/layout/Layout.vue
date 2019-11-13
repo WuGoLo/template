@@ -9,7 +9,10 @@
       </el-header>
       <el-main>
         <div class="main-box">
-          <transition name="fade" mode="out-in">
+          <el-breadcrumb separator="/">
+            <el-breadcrumb-item v-for="(item, i) in breadcrumb" :key="i">{{item}}</el-breadcrumb-item>
+          </el-breadcrumb>
+          <transition name="fade-transform" mode="out-in">
             <router-view></router-view>
           </transition>
         </div>  
@@ -19,119 +22,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { HeaderBar, SideBar } from './middle';
 export default {
   components: { HeaderBar, SideBar },
   data() {
     return {
-      menuArr: [
-        {
-          "access": "resource_access",
-          "children": [
-            {
-              "access": "upload_access",
-              "children": null,
-              "hasSub": 0,
-              "id": 211,
-              "name": "地图标注",
-              "path": "/map/maplabel",
-              "showMenu": 1,
-              "url": null
-            },
-          ],
-          "hasSub": 1,
-          "id": 21,
-          "name": "地图标注",
-          "path": "/map",
-          "showMenu": 1,
-          "url": null
-        },
-        {
-          "access": "resource_access",
-          "children": [
-            {
-                "access": "library_access",
-                "children": null,
-                "hasSub": 0,
-                "id": 230,
-                "name": "销售合同列表",
-                "path": "resource/library",
-                "showMenu": 1,
-                "url": null
-            },
-          ],
-          "hasSub": 1,
-          "id": 22,
-          "name": "销售合同管理",
-          "path": "/resource",
-          "showMenu": 1,
-          "url": null
-        },
-        {
-          "access": "resource_access",
-          "children": [
-            {
-                "access": "library_access",
-                "children": null,
-                "hasSub": 0,
-                "id": 231,
-                "name": "申请单列表",
-                "path": "resource/library",
-                "showMenu": 1,
-                "url": null
-            },
-          ],
-          "hasSub": 1,
-          "id": 23,
-          "name": "穿缆申请管理",
-          "path": "/resource",
-          "showMenu": 1,
-          "url": null
-        },
-        {
-          "access": "resource_access",
-          "children": [
-            {
-                "access": "library_access",
-                "children": null,
-                "hasSub": 0,
-                "id": 235,
-                "name": "客户列表",
-                "path": "resource/library",
-                "showMenu": 1,
-                "url": null
-            },
-          ],
-          "hasSub": 1,
-          "id": 24,
-          "name": "客户管理",
-          "path": "/resource",
-          "showMenu": 1,
-          "url": null
-        },
-        {
-          "access": "resource_access",
-          "children": [
-            {
-                "access": "library_access",
-                "children": null,
-                "hasSub": 0,
-                "id": 235,
-                "name": "用户列表",
-                "path": "/user/list",
-                "showMenu": 1,
-                "url": null
-            },
-          ],
-          "hasSub": 1,
-          "id": 24,
-          "name": "用户管理",
-          "path": "/user",
-          "showMenu": 1,
-          "url": null
-        }
-      ]
+
     }
+  },
+  computed: {
+    ...mapGetters([
+      'breadcrumb',
+    ])
   },
   beforeCreate () {
     // if (!localStorage.getItem('token')) {
@@ -159,5 +62,7 @@ export default {
   .main-box {
     height: 100%;
     background-color: #fff;
+    border-radius: 5px;
+    padding: 20px 10px;
   }
 </style>

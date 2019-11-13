@@ -12,14 +12,14 @@
       background-color="#545c64" 
       text-color="#fff" 
       active-text-color="#ffd04b"
-      :default-active="app.activeMenu"
+      :default-active="activeMenu"
       @open="setMenuOpen"
       @select="setActiveMenu"
     >
-      <el-menu-item index="/home">
+      <!-- <el-menu-item index="/home">
         <i class="el-icon-s-home"></i>
         <span slot="title">首页</span>
-      </el-menu-item>
+      </el-menu-item> -->
 
       <el-submenu :index="'' + i" v-for="(item, i) in menuArr" :key="i" v-show="item.sonLength == 1">
         <template slot="title">
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'SideBar',
   props:{},
@@ -141,6 +141,7 @@ export default {
           "url": null
         }
       ],
+      breadArr: [],
     }
   },
   watch: {
@@ -148,11 +149,13 @@ export default {
     '$route': 'fetchData'
   },
   computed: {
-    ...mapState({
-      app: 'app' 
-    })
+    ...mapGetters([
+      'activeMenu',
+      'breadcrumb'
+    ])
   },
   created () {
+    this.breadArr = this.breadcrumb
     // 组件创建完后获取数据，
     this.fetchData()
     // 通过后端接口获取菜单组
@@ -163,9 +166,11 @@ export default {
   },
   methods:{
     fetchData () {
-      console.log(this.$route)
+      console.log(this.$route);
+      this.currentOpen = this.$route.path;
+      this.breadArr[1] = this.$route.meta.title;
       this.$store.commit('set_ActiveMenu', this.$route.path)
-      this.$store.commit('set_MenuOpen', '0')
+      this.$store.commit('set_Breadcrumb', this.breadArr)
     },
     getMenu() {
       this.menuArr.forEach(item => {
@@ -177,13 +182,11 @@ export default {
       })
     },
     setMenuOpen(val) {
-      console.log(this.$route)
-      this.currentOpen = val;
+      this.breadArr = [];
+      this.breadArr[0] = this.menuArr[val].name;
+      console.log(this.breadArr);
     },
-    setActiveMenu(val) {
-      this.$store.commit('set_MenuOpen', this.currentOpen)
-      this.$store.commit('set_ActiveMenu', val)
-    }
+    setActiveMenu(val) {}
   },
 }
 </script>

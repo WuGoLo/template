@@ -1,12 +1,13 @@
+import { Breadcrumb } from "element-ui";
 
 const app = {
   state: {
-    menuOpen: '0',
-    activeMenu: '/'
+    activeMenu: '/',
+    breadcrumb: [],
   },
   mutations: {
-    set_MenuOpen: (state, menuOpenPath) => { state.menuOpen = menuOpenPath },
-    set_ActiveMenu: (state, menuActivePath) => { state.activeMenu = menuActivePath }
+    set_ActiveMenu: (state, menuActivePath) => { state.activeMenu = menuActivePath },
+    set_Breadcrumb: (state, breadcrumbArr) => { state.breadcrumb = breadcrumbArr }
   },
   actions: {
 

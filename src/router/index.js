@@ -59,7 +59,7 @@ const constantRouterMap = [
         name: 'user',
         path: 'list',
         component: () => import('@/views/user/user'),
-        meta: { noCache: true }
+        meta: { title: '用户列表', noCache: true }
       }
     ]
   },
@@ -75,7 +75,7 @@ const constantRouterMap = [
         name: 'mapLabel',
         path: 'maplabel',
         component: () => import('@/views/map/label'),
-        meta: { noCache: true }
+        meta: { title: '地图标注', noCache: true }
       }
 
     ]
@@ -92,7 +92,6 @@ const router = new Router({
 
 // 路由前置守卫
 router.beforeEach((to, from, next) => {
-  console.log(to)
   next()
 })
 export default router
