@@ -4,7 +4,7 @@
       <Side-bar></Side-bar>
     </el-aside>
     <el-container class="content">
-      <el-header>
+      <el-header class="nav-header">
         <Header-bar></Header-bar>
       </el-header>
       <el-main>
@@ -59,8 +59,12 @@ export default {
   .home {
     height: 100%;
   }
+  .nav-header {
+    z-index: 999;
+    box-shadow: 2px 0px 4px rgb(97, 97, 97);
+  }
   .main-box {
-    height: 100%;
+    // height: 100%;
     background-color: #fff;
     border-radius: 5px;
     padding: 20px 10px;
