@@ -1,11 +1,8 @@
 <template>
   <div>
-    <div class="userName">
+    <div class="customer">
       <span style="padding-right:10px;">客户名称</span>
-      <el-input
-        placeholder=""
-        v-model="listQuery.user"
-      ></el-input>
+      <el-input placeholder="" v-model="listQuery.customer"></el-input>
       <el-button
         type="primary"
         icon="el-icon-search"
@@ -23,7 +20,7 @@
       </el-table-column>
       <el-table-column align="center" width="250px" label="客户名称">
         <template slot-scope="scope">
-          <span>{{scope.row.user}}</span>
+          <span>{{scope.row.customer}}</span>
         </template>
       </el-table-column>
       <el-table-column align="center" width="250px" label="项目名称">
@@ -68,32 +65,32 @@ export default {
   data(){
     return {
       tableData: [{
-          user: 'JK787989',
+          customer: 'JK787989',
           name: '海淀黄庄2-2',
           pipe: '上海市普陀区金沙江路 1518 弄',
           num:'可穿揽',
           stock:'测试数据'
         }, {
-          user: 'SY89889',
+          customer: 'SY89889',
           name: '苏州街1-1',
           pipe: '上海市普陀区金沙江路 1518 弄',
           num:'可穿揽',
           stock:'测试数据'
         }, {
-          user: 'KLHU23429',
+          customer: 'KLHU23429',
           name: '王小虎',
           pipe: '上海市普陀区金沙江路 1519 弄',
           num:'可穿揽',
           stock:'测试数据'
         }, {
-          user: 'JK787989',
+          customer: 'JK787989',
           name: '海淀黄庄2-2',
           pipe: '上海市普陀区金沙江路 1516 弄',          
           num:'可穿揽',
           stock:'测试数据'
         }],
         listQuery:{
-          name:'',
+          customer:'',
         },
         currentPage4: 1
     }
@@ -102,7 +99,8 @@ export default {
   computed:{},
   methods:{
     getUserList(){
-
+      let customer = this.listQuery.customer
+      console.log(customer)
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
@@ -116,7 +114,4 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.userName{
-  margin: 20px;
-}
 </style>

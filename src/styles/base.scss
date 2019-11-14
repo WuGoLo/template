@@ -1,5 +1,7 @@
+$color: #2b50ef;
 $btn-bgcolor: #2b50ef;
 $btn-bgcolor_h: #395df8;
+$font-color:#333;
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
 }
@@ -8,8 +10,13 @@ div,span,a,ul,li {
   font-family: Arial, Helvetica, sans-serif;
 }
 div,a,ul,li {
-  color: #333;
+  color:$font-color;
 }  
+// 全局布局样式
+.el-header {
+  height: 64px;
+  background-color: #fff;
+}
 .el-input--medium .el-input__inner{
   height: 30px;
 }
@@ -17,7 +24,7 @@ div,a,ul,li {
   width: 220px;
 }
 .el-breadcrumb__inner {
-  color: #333;
+  color:$font-color;
 }
 .el-button--primary {
   color: #FFF;
@@ -46,6 +53,36 @@ div,a,ul,li {
   color: #333;
 }
 .el-pager li.active {
-  color: $btn-bgcolor;
+  color: $color;
   cursor: default;
+}
+.el-pager li:hover {
+  color: $color;
+}
+.el-select-dropdown__item.selected {
+  color: $color;
+}
+.el-select .el-input.is-focus .el-input__inner {
+  border-color: $color;
+}
+.el-pagination__sizes .el-input .el-input__inner:hover {
+  border-color: $color;
+}
+.el-select .el-input__inner:focus {
+  border-color: $color;
+}
+.el-pagination__total {
+  color: $font-color;
+}
+.el-select-dropdown__item {
+  color: $font-color;
+}
+.el-select .el-input__inner {
+  color: $font-color;
+}
+.el-pagination__jump {
+  color: $font-color;
+}
+.el-pagination__jump .el-input__inner {
+  color: $font-color;
 }
