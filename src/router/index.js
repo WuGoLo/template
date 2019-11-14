@@ -121,6 +121,23 @@ const constantRouterMap = [
 
     ]
   },
+  {
+    name: 'salesManage',
+    path: '/sales',
+    component: Layout,
+    meta: {
+      title: '销售订单管理'
+    },
+    children: [
+      {
+        name: 'order',
+        path: 'order',
+        component: () => import('@/views/sales/order'),
+        meta: { title: '销售订单列表', noCache: true }
+      }
+
+    ]
+  },
 
   { path: '*', redirect: '/404', component: () => import('@/views/errorPage/404') }
 ]

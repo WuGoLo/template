@@ -89,6 +89,27 @@ export default {
           "url": null
         },
         {
+          "access": "sales_access",
+          "children": [
+            {
+                "access": "order_access",
+                "children": null,
+                "hasSub": 0,
+                "id": 245,
+                "name": "销售订单列表",
+                "path": "/sales/order",
+                "showMenu": 1,
+                "url": null
+            },
+          ],
+          "hasSub": 1,
+          "id": 24,
+          "name": "销售订单管理",
+          "path": "/sales",
+          "showMenu": 1,
+          "url": null
+        },
+        {
           "access": "customer_access",
           "children": [
             {

@@ -5,3 +5,25 @@ div,span,a,ul,li {
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
 }
+div,a,ul,li {
+  color: #333;
+}  
+.el-input--medium .el-input__inner{
+  height: 30px;
+}
+.el-input--medium {
+  width: 220px;
+}
+.el-breadcrumb__inner {
+  color: #333;
+}
+.el-button--primary {
+  color: #FFF;
+  background-color: #2b50ef;
+  border-color: #2b50ef;
+}
+.el-button--primary:focus, .el-button--primary:hover {
+  background: #395df8;
+  border-color: #395df8;
+  color: #FFF;
+}
