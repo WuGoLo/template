@@ -41,6 +41,7 @@ const constantRouterMap = [
   {
     name: 'mapManage',
     path: '/map',
+    redirect: '/map/maplabel',
     component: Layout,
     meta: {
       title: '地图管理'
@@ -102,23 +103,6 @@ const constantRouterMap = [
         component: () => import('@/views/resource/library'),
         meta: { title: '申请单列表', noCache: true }
       }
-    ]
-  },
-  {
-    name: 'mapManage',
-    path: '/map',
-    component: Layout,
-    meta: {
-      title: '地图管理'
-    },
-    children: [
-      {
-        name: 'mapLabel',
-        path: 'maplabel',
-        component: () => import('@/views/map/label'),
-        meta: { title: '地图标注', noCache: true }
-      }
-
     ]
   },
   {

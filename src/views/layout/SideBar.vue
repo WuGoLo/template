@@ -2,7 +2,7 @@
   <div>
     <div class="logo">
       <a>
-        <img src="" class="logo">
+        <img src="@/assets/images/logo.png" height="80px" class="logo">
       </a>
     </div>
     <el-menu
@@ -203,15 +203,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .logo {
-  height: 64px;
-  line-height: 64px;
   text-align: center;
+  a {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgb(57, 58, 61);
+  }
   img {
-    width: 180px;
-    height: 36px;
     display: inline-block;
-    background-color: aliceblue;
-    margin-top: 14px;
   }
 }
 </style>

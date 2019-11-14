@@ -2,7 +2,10 @@
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
       <div class="title-container">
-        <h3 class="title">管理员登录</h3>
+        <img src="@/assets/images/logo-2.png" height="60px" alt="北信">
+      </div>
+      <div class="title-container">
+        <h3 class="title">北信基础网上办理平台</h3>
       </div>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
@@ -22,13 +25,6 @@
       </el-form-item>
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
-
-      <div style="position:relative">
-        <div class="tips">
-          <span> 超级管理员用户名: admin123</span>
-          <span> 超级管理员用户名：admin123</span>
-        </div>
-      </div>
     </el-form>
 
   </div>
@@ -108,16 +104,6 @@ $color:#2b50ef;
     margin: 120px auto;
     background-color: #fff;
   }
-  .tips {
-    font-size: 14px;
-    color: #2d3a4b;
-    margin-bottom: 10px;
-    span {
-      &:first-of-type {
-        margin-right: 16px;
-      }
-    }
-  }
   .svg-container {
     padding: 6px 5px 6px 15px;
     color: $color;
@@ -129,6 +115,7 @@ $color:#2b50ef;
     }
   }
   .title-container {
+    text-align: center;
     position: relative;
     .title {
       font-size: 26px;
@@ -137,6 +124,10 @@ $color:#2b50ef;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
+    }
+    img {
+      margin-bottom: 20px;
+      display: inline-block;
     }
   }
   .show-pwd {

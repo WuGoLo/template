@@ -41,6 +41,9 @@ $color: #2b50ef;
     background-color: rgb(75, 79, 83) !important;
   }
 }
+.el-submenu .el-menu-item.is-active {
+  &:hover { i { color: rgb(255, 208, 75); } }
+}
 // 面包屑
 .el-breadcrumb {
   margin-bottom: 30px;
