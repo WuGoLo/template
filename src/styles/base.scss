@@ -32,3 +32,20 @@ div,a,ul,li {
 .el-table--striped .el-table__body tr.el-table__row--striped td {
   background: #e9edfd;
 }
+.el-input__inner:hover {
+  border-color: $btn-bgcolor;
+}
+.el-input__inner:focus {
+  border-color: $btn-bgcolor;
+}
+.block {
+  margin-top: 20px;
+  text-align: center;
+}
+.el-pagination {
+  color: #333;
+}
+.el-pager li.active {
+  color: $btn-bgcolor;
+  cursor: default;
+}
