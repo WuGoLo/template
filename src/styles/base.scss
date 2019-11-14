@@ -1,3 +1,5 @@
+$btn-bgcolor: #2b50ef;
+$btn-bgcolor_h: #395df8;
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
 }
@@ -19,11 +21,11 @@ div,a,ul,li {
 }
 .el-button--primary {
   color: #FFF;
-  background-color: #2b50ef;
-  border-color: #2b50ef;
+  background-color: $btn-bgcolor;
+  border-color: $btn-bgcolor;
 }
 .el-button--primary:focus, .el-button--primary:hover {
-  background: #395df8;
-  border-color: #395df8;
+  background: $btn-bgcolor_h;
+  border-color: $btn-bgcolor_h;
   color: #FFF;
 }
