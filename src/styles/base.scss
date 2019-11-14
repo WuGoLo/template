@@ -86,3 +86,16 @@ div,a,ul,li {
 .el-pagination__jump .el-input__inner {
   color: $font-color;
 }
+.el-tabs__item.is-active {
+  color: $color;
+  background: #fff;
+}
+.el-tabs__item {
+  background: #e9ecf3;
+}
+.el-tabs__item:hover {
+  color: $color;
+}
+// .el-submenu__title:hover {
+//   background-color: #263e98 !important;
+// }
