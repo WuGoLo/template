@@ -12,7 +12,7 @@
       </el-form-item>
 
       <el-form-item prop="password">
-        <span class="svg-container">
+        <span class="svg-container svg-container_login">
           <i class="el-icon-lock"/>
         </span>
         <el-input :type="passwordType" v-model="loginForm.password" name="password" auto-complete="on" placeholder="password" @keyup.enter.native="handleLogin" />
@@ -90,44 +90,9 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
-$bg:#2d3a4b;
-$light_gray:#eee;
-
-/* reset element-ui css */
-.login-container {
-  .el-input {
-    display: inline-block;
-    height: 47px;
-    width: 85%;
-    input {
-      background: transparent;
-      border: 0px;
-      -webkit-appearance: none;
-      border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      color: $light_gray;
-      height: 47px;
-      &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: #fff !important;
-      }
-    }
-  }
-  .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    color: #454545;
-  }
-}
-</style>
-
 <style rel="stylesheet/scss" lang="scss" scoped>
 $bg:#2d3a4b;
-$dark_gray:#889aa4;
-$light_gray:#eee;
+$color:#2b50ef;
 
 .login-container {
   position: fixed;
@@ -141,10 +106,11 @@ $light_gray:#eee;
     width: 520px;
     padding: 35px 35px 15px 35px;
     margin: 120px auto;
+    background-color: #fff;
   }
   .tips {
     font-size: 14px;
-    color: #fff;
+    color: #2d3a4b;
     margin-bottom: 10px;
     span {
       &:first-of-type {
@@ -154,7 +120,7 @@ $light_gray:#eee;
   }
   .svg-container {
     padding: 6px 5px 6px 15px;
-    color: $dark_gray;
+    color: $color;
     vertical-align: middle;
     width: 30px;
     display: inline-block;
@@ -167,7 +133,7 @@ $light_gray:#eee;
     .title {
       font-size: 26px;
       font-weight: 400;
-      color: $light_gray;
+      color: $color;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
@@ -178,7 +144,7 @@ $light_gray:#eee;
     right: 10px;
     top: 7px;
     font-size: 16px;
-    color: $dark_gray;
+    color: $color;
     cursor: pointer;
     user-select: none;
   }

@@ -1,3 +1,4 @@
+$color: #2b50ef;
 $btn-bgcolor: #2b50ef;
 $btn-bgcolor_h: #395df8;
 h1,h2,h3,h4,h5,h6 {
@@ -21,8 +22,8 @@ div,a,ul,li {
 }
 .el-button--primary {
   color: #FFF;
-  background-color: $btn-bgcolor;
-  border-color: $btn-bgcolor;
+  background-color: $color;
+  border-color: $color;
 }
 .el-button--primary:focus, .el-button--primary:hover {
   background: $btn-bgcolor_h;

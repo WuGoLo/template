@@ -1,6 +1,6 @@
 /* 改变主题色变量 */
-$--color-primary: rgba(16, 142, 233, 1);
-
+$--color-primary: #2b50ef;
+$color: #2b50ef;
 // /* 改变 icon 字体路径变量，必需 */
 // $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
@@ -41,7 +41,43 @@ $--color-primary: rgba(16, 142, 233, 1);
     background-color: rgb(75, 79, 83) !important;
   }
 }
-
+// 面包屑
 .el-breadcrumb {
   margin-bottom: 30px;
+}
+
+// 登陆页
+$bg:#2d3a4b;
+
+/* reset element-ui css */
+.login-container {
+  .el-input {
+    display: inline-block;
+    height: 47px;
+    width: 85%;
+    input {
+      background: transparent;
+      border: 0px;
+      -webkit-appearance: none;
+      border-radius: 0px;
+      padding: 12px 5px 12px 15px;
+      height: 47px;
+      &:-webkit-autofill {
+        box-shadow: 0 0 0px 1000px $bg inset !important;
+        -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
+        -webkit-text-fill-color: #fff !important;
+      }
+    }
+  }
+  .el-form-item--medium .el-form-item__content,
+  .el-form-item--medium .el-form-item__label {
+    background-color: #fff;
+    border: none;
+  }
+  .el-form-item {
+    border-bottom: 1px solid $color;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    color: #454545;
+  }
 }
