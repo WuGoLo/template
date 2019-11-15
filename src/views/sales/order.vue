@@ -182,7 +182,4 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .top-search {
-    margin-bottom: 20px;
-  }
 </style>

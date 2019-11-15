@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="customer">
+    <div class="top-search">
       <span style="padding-right:10px;">用户名称</span>
       <el-input placeholder="" v-model="listQuery.user"></el-input>
       <el-button

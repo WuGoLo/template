@@ -95,5 +95,20 @@ div:focus{
 }
 
 .customer{
-  margin: 20px;
+  margin: 20px 0px;
+}
+.handle-edit{
+  border: 1px solid;
+  background: #fff;
+  border-radius: 30px;
+  color: $color;
+}
+.table-title{
+  cursor: pointer;
+}
+.table-title:hover {
+  color: $color;
+}
+.top-search {
+  margin-bottom: 20px;
 }
