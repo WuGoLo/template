@@ -8,7 +8,7 @@
       </el-table-column>
       <el-table-column align="center" label="申请单号">
         <template slot-scope="scope">
-          <a class="table-title" @click="showInfo(scope.row)">{{scope.row.sqdh}}</a>
+          <router-link :to="{path:'/map/maplabel'}">{{scope.row.sqdh}}</router-link>
         </template>
       </el-table-column>
       <el-table-column align="center" label="申请单位">
@@ -47,9 +47,6 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-dialog title="申请单号详情" class="info-dialog" :visible.sync="dialogTableVisible">
-      <show-info :data=tableInfo :options="option"></show-info>
-    </el-dialog>
     <div class="block">
       <el-pagination
         @size-change="handleSizeChange"
@@ -65,40 +62,13 @@
 </template>
 
 <script>
-import showInfo from "@/components/numdetail/showInfo.vue"
 export default {
   components:{
-    showInfo
   },
   props:{},
   data(){
     return {
       currentPage:1,
-      dialogTableVisible:false,
-      dialogFormVisible:false,
-      disabled:true,
-      text:'修改',
-      applyForm: {
-        sqdh: "",
-        sqdw: "",
-        qd:'',
-        zd:'',
-        cd:'',
-        sqsl:0,
-        zt:'',
-        clrq:'',
-      },
-      tableInfo: {},
-      option: {
-        sqdh: "sqdh",
-        sqdw: "sqdw",
-        qd: "qd",
-        zd:'zd',
-        cd:'cd',
-        sqsl:'sqsl',
-        zt:'zt',
-        clrq:'clrq',
-      },
       tableData: [ {
         id: '001',
         sqdh: 'GISSQD201900001',
@@ -117,12 +87,9 @@ export default {
   watch:{},
   computed:{},
   methods:{
-    showInfo(val){
-      console.log(val);
-      this.tableInfo = val;
-      this.dialogTableVisible = true;
+    handEdit(){
+      this.$router.push({path:'/map/maplabel'})
     },
-    handDow(){},
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },
