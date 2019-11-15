@@ -41,6 +41,17 @@
     <el-dialog title="申请单号详情" class="info-dialog" :visible.sync="dialogTableVisible">
       <show-info :data=tableInfo :options="option"></show-info>
     </el-dialog>
+    <div class="block">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[10, 20, 30, 40]"
+        :page-size="10"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="40">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -53,6 +64,7 @@ export default {
   props:{},
   data(){
     return {
+      currentPage:1,
       dialogTableVisible:false,
       dialogFormVisible:false,
       disabled:true,
@@ -101,7 +113,13 @@ export default {
       this.tableInfo = val;
       this.dialogTableVisible = true;
     },
-    handDow(){}
+    handDow(){},
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    },
   },
   created(){},
   mounted(){

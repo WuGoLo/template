@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'admin123',
-        password: 'admin123'
+        username: 'admin',
+        password: 'admin'
       },
       loginRules: {
         username: [{ required: true, message: '管理员账户不允许为空', trigger: 'blur' }],
@@ -76,6 +76,14 @@ export default {
     handleLogin() {
       login().then(res => {
         console.log(res);
+        window.sessionStorage.setItem(
+          "username",
+          res.data.data.userName
+        );
+        window.sessionStorage.setItem(
+          "loginName",
+          res.data.data.loginName
+        );
         if(res.data.code == 1) {
           this.$router.push('map/maplabel')
         }

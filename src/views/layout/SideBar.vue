@@ -9,9 +9,8 @@
       ref="sideMenu"
       router unique-opened 
       class="el-menu-vertical-demo slide" 
-      background-color="#545c64" 
       text-color="#fff" 
-      active-text-color="#ffd04b"
+      active-text-color="#6c85f7"
       :default-active="activeMenu"
       @open="setMenuOpen"
       @select="setActiveMenu"
@@ -207,8 +206,7 @@ export default {
   a {
     display: block;
     width: 100%;
-    margin: 0 auto;
-    background-color: rgb(57, 58, 61);
+    margin: 30px auto;
   }
   img {
     display: inline-block;

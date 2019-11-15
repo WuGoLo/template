@@ -64,9 +64,6 @@ export default {
     box-shadow: 2px 0px 4px rgb(97, 97, 97);
   }
   .main-box {
-    // height: 100%;
-    background-color: #fff;
     border-radius: 5px;
-    padding: 20px 10px;
   }
 </style>

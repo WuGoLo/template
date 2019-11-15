@@ -64,6 +64,7 @@
           :model="applyForm"
           label-width="100px"
           :rules="applyForm"
+          style="width:95%;margin:0 auto"
         >
           <el-form-item label="申请单号:" prop="sqdh">
             <el-input v-model="applyForm.sqdh" :disabled="disabled"></el-input>
@@ -85,10 +86,21 @@
           </el-form-item>
         </el-form>
         <span slot="footer" class="dialog-footer">
-          <el-button  @click="cancelClose"  size="small"  type="primary">取消</el-button>
+          <el-button  @click="cancelClose"  size="small"  type="primary2">取消</el-button>
           <el-button type="primary" size="small"  style="margin-left:50px;" @click="updateData">保存</el-button>
         </span>
       </el-dialog>
+      <div class="block">
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage"
+          :page-sizes="[10, 20, 30, 40]"
+          :page-size="10"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="40">
+        </el-pagination>
+      </div>
   </div>
 </template>
 
@@ -101,6 +113,7 @@ export default {
   props:{},
   data(){
     return {
+      currentPage:1,
       dialogTableVisible:false,
       dialogFormVisible:false,
       disabled:true,
@@ -178,7 +191,13 @@ export default {
     },
     handDel(row){
       console.log(row.id)
-    }
+    },
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    },
   },
   created(){},
   mounted(){

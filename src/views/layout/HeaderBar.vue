@@ -7,7 +7,7 @@
           <i class="el-icon-user-solid"></i>
         </span>
         <span>
-          用户中心
+          {{userName}}
         </span>
       </span>
       <span class="nav-sys" @click="logout">
@@ -15,7 +15,7 @@
           <i class="el-icon-switch-button"></i>
         </span>
         <span>
-          安全退出
+          退出
         </span>
       </span>
     </div>
@@ -28,12 +28,16 @@ export default {
   props:{},
   data(){
     return {
+      userName:'',
     }
   },
   watch:{},
   computed:{},
   created(){},
-  mounted(){},
+  mounted(){
+    this.userName = window.sessionStorage.getItem("username");
+    console.log(this.userName)
+  },
   methods:{
     logout() {
       this.$router.push('/login')
