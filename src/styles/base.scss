@@ -96,9 +96,6 @@ div,a,ul,li {
 .el-tabs__item:hover {
   color: $color;
 }
-// .el-submenu__title:hover {
-//   background-color: #263e98 !important;
-// }
 .el-form-item__label {
   color: $font-color;
   text-align: left;
@@ -139,4 +136,13 @@ div,a,ul,li {
 }
 .el-breadcrumb__inner {
   color: #8a8b8d;
+}
+.el-tabs__header {
+  padding: 0;
+  position: relative;
+  margin: 0;
+}
+.el-tabs__content {
+  background: #fff;
+  padding: 20px;
 }

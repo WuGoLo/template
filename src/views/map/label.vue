@@ -14,7 +14,7 @@
         <el-button type="primary" size="mini" @click="getUserList()" style="margin-right:30px" class="btn">提交</el-button>
         <el-button type="primary" size="mini" @click="getUserList()">保存</el-button>
       </div>
-          <el-table :data="tableData" border  stripe  style="width: 100%"  row-key="id"  fit  highlight-current-row  :header-cell-style="{'background-color': '#aab9f9','color': 'rgb(103, 194, 58)',}">
+          <el-table :data="tableData" border  stripe  row-key="id"  fit  highlight-current-row  :header-cell-style="{'background-color': '#aab9f9','color': 'rgb(103, 194, 58)',}">
       <el-table-column label="序号" width="60" align="center">
         <template slot-scope="scope">
           <span>{{scope.$index+1}}</span>
@@ -103,8 +103,9 @@ export default {
     height: 500px;
   }
   .box{
-    padding: 20px 0px;
-     .search-span{
+    padding: 20px;
+    background: #fff;
+    .search-span{
       padding-right:10px;
     }
     .top-input{
