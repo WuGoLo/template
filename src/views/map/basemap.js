@@ -1,20 +1,27 @@
 import * as esriLoader from 'esri-loader'
 const Esrimap = {
   init(mapdom) {
-    esriLoader.loadCss('https://js.arcgis.com/3.24/esri/css/esri.css');
-    const options = {
-      url: 'https://js.arcgis.com/3.24/'
-    }
+    esriLoader.loadCss();
+    // const options = {
+    //   url: 'https://js.arcgis.com/3.24/'
+    // }
     esriLoader.loadModules([
-      'esri/map',
-      'dojo/domReady!'
-    ], options)
-    .then(([Map]) => {
-      let map = new Map(mapdom, {
-        basemap: 'topo-vector',
-        center: [113.3209952545166, 23.090055306224895],
-        zoom: 15
-      })
+      'esri/Map',
+      'esri/views/MapView'
+      // "esri/Graphic",
+      // "esri/layers/GraphicsLayer",
+      // 'dojo/domReady!'
+    ])
+    .then(([ArcGISMap, MapView]) => {
+      let map = new ArcGISMap({
+        basemap: 'topo-vector'
+      });
+      let view = new MapView({
+        container: mapdom,
+        map: map,
+        center: [-118, 34],
+        zoom: 8
+      });
     })
     .catch (err => {})
   }
