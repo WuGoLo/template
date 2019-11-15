@@ -1,8 +1,5 @@
 <template>
-  <div>
-    这是地图页面
-    <div ref="mapdom"></div>
-  </div>
+  <div ref="mapdom" class="map"></div>
 </template>
 
 <script>
@@ -21,7 +18,16 @@ export default {
     Esrimap.init(this.$refs.mapdom)
   },
   methods:{},
+  beforeDestroy() {
+
+  }
 }
 </script>
 <style lang="scss" scoped>
+  .map {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 800px;
+  }
 </style>
