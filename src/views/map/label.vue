@@ -9,15 +9,18 @@ export default {
   props:{},
   data(){
     return {
+      Esrimap: null,
     }
   },
   watch:{},
   computed:{},
   created(){},
   mounted(){
-    Esrimap.init(this.$refs.mapdom)
+    this.Esrimap = Esrimap.initMap(this.$refs.mapdom)
   },
-  methods:{},
+  methods:{
+    
+  },
   beforeDestroy() {
 
   }
