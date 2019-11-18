@@ -9,9 +9,8 @@
       ref="sideMenu"
       router unique-opened 
       class="el-menu-vertical-demo slide" 
-      background-color="#545c64" 
       text-color="#fff" 
-      active-text-color="#ffd04b"
+      active-text-color="#6c85f7"
       :default-active="activeMenu"
       @open="setMenuOpen"
       @select="setActiveMenu"
@@ -28,7 +27,6 @@
         </template>
         <el-menu-item-group v-for="(item2, j) in item.children" :key="j">
           <el-menu-item :index="item2.path">
-            <i class="el-icon-tickets"></i>
             {{item2.name}}
           </el-menu-item>
         </el-menu-item-group>
@@ -207,8 +205,7 @@ export default {
   a {
     display: block;
     width: 100%;
-    margin: 0 auto;
-    background-color: rgb(57, 58, 61);
+    margin: 30px auto;
   }
   img {
     display: inline-block;

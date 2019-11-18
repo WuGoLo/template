@@ -4,18 +4,18 @@
     <div>
       <span class="nav-sys">
         <span>
-          <i class="el-icon-user-solid"></i>
+         <img class="logout-img" src="@/assets/images/yonghu-1.png" alt="">
         </span>
         <span>
-          用户中心
+          {{userName}}
         </span>
       </span>
       <span class="nav-sys" @click="logout">
         <span>
-          <i class="el-icon-switch-button"></i>
+          <img class="logout-img" src="@/assets/images/tuichu.png"/>
         </span>
         <span>
-          安全退出
+          退出
         </span>
       </span>
     </div>
@@ -28,12 +28,16 @@ export default {
   props:{},
   data(){
     return {
+      userName:'',
     }
   },
   watch:{},
   computed:{},
   created(){},
-  mounted(){},
+  mounted(){
+    this.userName = window.sessionStorage.getItem("username");
+    console.log(this.userName)
+  },
   methods:{
     logout() {
       this.$router.push('/login')
@@ -55,29 +59,15 @@ export default {
     line-height: 18px;
     margin-right: 20px;
     cursor: pointer;
-    &:first-child {
-      i {
-        color: $color;
-      }
-      &:hover {
-        color: $color;
-      }
-    }
-    &:last-child {
-      i {
-        color: #e91e2e;
-      }
-      &:hover {
-        color: #e91e2e;
-      }
-    }
     span {
       display: inline-block;
       height: 24px;
       line-height: 24px;
     }
-    i {
-      font-size: 16px;
-    }
+  }
+  .logout-img{
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
   }
 </style>

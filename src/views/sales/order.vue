@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="container">
     <div class="top-search">
-      <span style="padding-right:10px;">订单编号：</span>
+      <span>订单编号：</span>
       <el-select
         v-model="listQuery.orderNumber"
         filterable
         remote
         reserve-keyword
-        placeholder="请输入关键词"
+        placeholder="请输入"
         :remote-method="remoteMethod"
         :loading="loading">
         <el-option
@@ -17,7 +17,7 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <span style="padding-right:10px; margin-left: 30px;">状态：</span>
+      <span style="margin-left: 30px;">状态：</span>
       <el-select v-model="listQuery.orderState" placeholder="请选择">
         <el-option
           v-for="item in options"
@@ -31,7 +31,7 @@
         icon="el-icon-search"
         size="mini"
         @click="getOrderList()"
-        style="margin-left:10px"
+        style="margin-left:20px"
       >搜索</el-button>
     </div>
     <div class="main-table">
@@ -41,29 +41,37 @@
             <span>{{scope.$index+1}}</span>
           </template>
         </el-table-column>
-        <el-table-column align="center" width="250px" label="客户名称">
+        <el-table-column align="center" width='250' label="销售订单编号">
           <template slot-scope="scope">
             <span>{{scope.row.customer}}</span>
           </template>
         </el-table-column>
-        <el-table-column align="center" width="250px" label="项目名称">
+        <el-table-column align="center" width='250' label="客户名称">
           <template slot-scope="scope">
             <span>{{scope.row.name}}</span>
           </template>
         </el-table-column>
-        <el-table-column align="center" label="管段">
+        <el-table-column align="center" label="联系方式">
           <template slot-scope="scope">
             <span>{{scope.row.pipe}}</span>
           </template>
         </el-table-column>
-        <el-table-column align="center" width="250px" label="数量(子孔)">
+        <el-table-column align="center" label="管段信息">
           <template slot-scope="scope">
             <span>{{scope.row.num}}</span>
           </template>
         </el-table-column>
-        <el-table-column align="center" width="250px" label="存量(子孔)">
+        <el-table-column align="center" label="状态">
           <template slot-scope="scope">
-            <span>{{scope.row.stock}}</span>
+            <span>{{scope.row.zt | getState}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" width='250' label="操作">
+          <template slot-scope="scope">
+            <div style="text-align: center">
+              <el-button  type="primary"  size="mini"  class="handle-edit" v-show="scope.row.zt==1"  @click="handDow(scope.row)">
+              <i class="el-icon-bottom"></i> 下载</el-button>          
+            </div>
           </template>
         </el-table-column>
       </el-table>
@@ -101,25 +109,29 @@ export default {
         name: '海淀黄庄2-2',
         pipe: '上海市普陀区金沙江路 1518 弄',
         num:'可穿揽',
-        stock:'测试数据'
+        stock:'测试数据',
+        zt:'1'
       }, {
         customer: 'SY89889',
         name: '苏州街1-1',
         pipe: '上海市普陀区金沙江路 1518 弄',
         num:'可穿揽',
-        stock:'测试数据'
+        stock:'测试数据',
+        zt:'2'
       }, {
         customer: 'KLHU23429',
         name: '王小虎',
         pipe: '上海市普陀区金沙江路 1519 弄',
         num:'可穿揽',
-        stock:'测试数据'
+        stock:'测试数据',
+        zt:'2'
       }, {
         customer: 'JK787989',
         name: '海淀黄庄2-2',
         pipe: '上海市普陀区金沙江路 1516 弄',          
         num:'可穿揽',
-        stock:'测试数据'
+        stock:'测试数据',
+        zt:'1'
       }],
       states: ["Alabama", "Alaska", "Arizona",
       "Arkansas", "California", "Colorado",
@@ -177,12 +189,19 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
-    }
+    },
+    handDow(){},
+  },
+  filters: {
+    getState(value) {
+      var arr = [
+        "有效",
+        "无效",
+      ];
+      return arr[value - 1];
+    },
   },
 }
 </script>
 <style lang="scss" scoped>
-  .top-search {
-    margin-bottom: 20px;
-  }
 </style>

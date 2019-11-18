@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div class="customer">
-      <span style="padding-right:10px;">客户名称</span>
-      <el-input placeholder="" v-model="listQuery.customer"></el-input>
+  <div class="container">
+    <div class="top-search">
+      <span>客户名称：</span>
+      <el-input placeholder="请输入" v-model="listQuery.customer"></el-input>
       <el-button
         type="primary"
         icon="el-icon-search"
         size="mini"
         @click="getUserList()"
-        style="margin-left:10px"
+        style="margin-left:20px"
       >查询</el-button>
     </div>
 

@@ -9,7 +9,7 @@
       </el-header>
       <el-main>
         <div class="main-box">
-          <el-breadcrumb separator="/">
+          <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item v-for="(item, i) in breadcrumb" :key="i">{{item}}</el-breadcrumb-item>
           </el-breadcrumb>
           <transition name="fade-transform" mode="out-in">
@@ -64,9 +64,6 @@ export default {
     box-shadow: 2px 0px 4px rgb(97, 97, 97);
   }
   .main-box {
-    // height: 100%;
-    background-color: #fff;
     border-radius: 5px;
-    padding: 20px 10px;
   }
 </style>

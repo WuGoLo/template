@@ -9,18 +9,18 @@ $color: #2b50ef;
 // element.style默认样式修改
 #app .el-container .el-aside {
   width: 224px !important;
-  background-color: rgba(63, 63, 63, 1);
+  background-color: #212c40;
 }
 .el-menu-vertical-demo {
   border-right: none;
 }
 .el-submenu__title {
-  background-color: rgba(63, 63, 63, 1) !important;
+  background-color: #212c40 !important;
   &:hover {
     i {
       color: #fff;
     }
-    background-color: rgba(16, 142, 233, 1) !important;
+    background-color: #263e98 !important;
   }
 }
 .el-menu-item-group__title {
@@ -33,16 +33,16 @@ $color: #2b50ef;
 .el-submenu .el-menu-item {
   height: 36px;
   line-height: 36px;
-  background-color: rgb(65, 68, 71) !important;
+  background-color: #121823 !important;
   &:hover {
     i {
       color: #fff;
     }
-    background-color: rgb(75, 79, 83) !important;
+    background-color:#121823 !important;
   }
 }
 .el-submenu .el-menu-item.is-active {
-  &:hover { i { color: rgb(255, 208, 75); } }
+  &:hover { i { color:#6c85f7; } }
 }
 // 面包屑
 .el-breadcrumb {

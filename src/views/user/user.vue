@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div class="customer">
-      <span style="padding-right:10px;">用户名称</span>
-      <el-input placeholder="" v-model="listQuery.user"></el-input>
+  <div class="container">
+    <div class="top-search">
+      <span>用户名称：</span>
+      <el-input placeholder="请输入" v-model="listQuery.user"></el-input>
       <el-button
         type="primary"
         icon="el-icon-search"
         size="mini"
         @click="getUserList()"
-        style="margin-left:10px"
+        style="margin-left:20px"
       >查询</el-button>
     </div>
 
@@ -18,7 +18,7 @@
           <span>{{scope.$index+1}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" width="250px" label="客户名称">
+      <el-table-column align="center" width="250px" label="用户名称">
         <template slot-scope="scope">
           <span>{{scope.row.user}}</span>
         </template>
@@ -48,7 +48,7 @@
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page="currentPage4"
+        :current-page="currentPage"
         :page-sizes="[10, 20, 30, 40]"
         :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
@@ -92,7 +92,7 @@ export default {
         listQuery:{
           customer:'',
         },
-        currentPage4: 1
+        currentPage: 1
     }
   },
   watch:{},
