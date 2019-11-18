@@ -22,12 +22,12 @@
 
       <el-submenu :index="'' + i" v-for="(item, i) in menuArr" :key="i" v-show="item.sonLength == 1">
         <template slot="title">
-          <i class="el-icon-menu"></i>
+          <i class="el-icon-menu" v-if="item.id == 21"></i>
+          <i class="el-icon-edit" v-if="item.id == 23"></i>
           <span>{{item.name}}</span>
         </template>
         <el-menu-item-group v-for="(item2, j) in item.children" :key="j">
           <el-menu-item :index="item2.path">
-            <i class="el-icon-tickets"></i>
             {{item2.name}}
           </el-menu-item>
         </el-menu-item-group>

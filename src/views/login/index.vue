@@ -9,14 +9,14 @@
       </div>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
-          <i class="el-icon-user-solid"/>
+          <img src="@/assets/images/denglu-1.png">
         </span>
         <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="username" />
       </el-form-item>
 
       <el-form-item prop="password">
         <span class="svg-container svg-container_login">
-          <i class="el-icon-lock"/>
+          <img src="@/assets/images/denglu-2.png">
         </span>
         <el-input :type="passwordType" v-model="loginForm.password" name="password" auto-complete="on" placeholder="password" @keyup.enter.native="handleLogin" />
         <span class="show-pwd" @click="showPwd">
@@ -24,7 +24,7 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
+      <el-button :loading="loading" type="primary" style="width:300px;margin-bottom:30px;height:40px;margin-left:15px;border-radius: 40px;" @click.native.prevent="handleLogin">登录</el-button>
     </el-form>
 
   </div>
@@ -78,6 +78,10 @@ export default {
         console.log(res);
         if(res.data.code == 1) {
           this.$router.push('map/maplabel')
+            window.sessionStorage.setItem(
+              "username",
+              this.loginForm.username
+            );
         }
       })
     }
@@ -99,19 +103,22 @@ $color:#2b50ef;
     position: absolute;
     left: 0;
     right: 0;
-    width: 520px;
+    width: 400px;
     padding: 35px 35px 15px 35px;
     margin: 120px auto;
     background-color: #fff;
   }
   .svg-container {
-    padding: 6px 5px 6px 15px;
+    padding: 6px 5px 0px 15px;
     color: $color;
     vertical-align: middle;
     width: 30px;
     display: inline-block;
     &_login {
-      font-size: 20px;
+      img{
+        width: 20px;
+        height: 20px;
+      }
     }
   }
   .title-container {
