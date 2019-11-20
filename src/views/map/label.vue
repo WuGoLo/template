@@ -1,52 +1,62 @@
 <template>
-  <div>
+  <div class="map-content">
     <div ref="mapdom" class="map"></div>
     <div class="box">
       <div class="top-search">
-        <span>申请人：</span>
-        <el-input placeholder="" v-model="listQuery.name" :disabled="disabled" class="top-input"></el-input>
-        <span>起点：</span>
-        <el-input placeholder="" v-model="listQuery.qd" :disabled="disabled" class="top-input"></el-input>
-        <span>终点：</span>
-        <el-input placeholder="" v-model="listQuery.zd" :disabled="disabled" class="top-input"></el-input>
-        <span>数量：</span>
-        <el-input placeholder="" v-model="listQuery.sl" :disabled="disabled" class="top-input" style="width:50px;"></el-input>
-        <el-button type="primary" size="mini" @click="getUserList()" style="margin-right:30px" class="btn">提交</el-button>
-        <el-button type="primary" size="mini" @click="getUserList()">保存</el-button>
+        <div>
+          <span>申请人：</span>
+          <el-input placeholder="" v-model="listQuery.name" :disabled="disabled" class="top-input"></el-input>
+        </div>
+        <div>
+          <span class="search-label">起点：</span>
+          <el-input placeholder="" v-model="listQuery.qd" :disabled="disabled" class="top-input"></el-input>
+        </div>
+        <div>
+          <span class="search-label">终点：</span>
+          <el-input placeholder="" v-model="listQuery.zd" :disabled="disabled" class="top-input"></el-input>
+        </div>
+        <div>
+          <span class="search-label">数量：</span>
+          <el-input placeholder="" v-model="listQuery.sl" :disabled="disabled" class="top-input" style="width:50px;"></el-input>
+        </div>
+        <div>
+          <el-button type="primary" size="mini" @click="getUserList()" style="margin-right:10px" class="btn">提交</el-button>
+          <el-button type="primary" size="mini" @click="getUserList()">保存</el-button>
+        </div>
       </div>
-          <el-table :data="tableData" border  stripe  row-key="id"  fit  highlight-current-row  :header-cell-style="{'background-color': '#aab9f9','color': 'rgb(103, 194, 58)',}">
-      <el-table-column label="序号" width="60" align="center">
-        <template slot-scope="scope">
-          <span>{{scope.$index+1}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="项目备案号">
-        <template slot-scope="scope">
-          <span>{{scope.row.xmbah}}</span>
-          <!-- <a class="table-title" @click="showInfo(scope.row)">{{scope.row.sqdh}}</a> -->
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="项目名称">
-        <template slot-scope="scope">
-          <span>{{scope.row.xmmc}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="管段">
-        <template slot-scope="scope">
-          <span>{{scope.row.gd}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="数量(子孔)">
-        <template slot-scope="scope">
-          <span>{{scope.row.sl}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="存量(子孔)">
-        <template slot-scope="scope">
-          <span>{{scope.row.cl}}</span>
-        </template>
-      </el-table-column>
-    </el-table>
+      <el-table :data="tableData" border  stripe  row-key="id"  fit  highlight-current-row  :header-cell-style="{'background-color': '#aab9f9','color': 'rgb(103, 194, 58)',}">
+        <el-table-column label="序号" width="60" align="center">
+          <template slot-scope="scope">
+            <span>{{scope.$index+1}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="项目备案号">
+          <template slot-scope="scope">
+            <span>{{scope.row.xmbah}}</span>
+            <!-- <a class="table-title" @click="showInfo(scope.row)">{{scope.row.sqdh}}</a> -->
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="项目名称">
+          <template slot-scope="scope">
+            <span>{{scope.row.xmmc}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="管段">
+          <template slot-scope="scope">
+            <span>{{scope.row.gd}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="数量(子孔)">
+          <template slot-scope="scope">
+            <span>{{scope.row.sl}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="存量(子孔)">
+          <template slot-scope="scope">
+            <span>{{scope.row.cl}}</span>
+          </template>
+        </el-table-column>
+      </el-table>
     </div>
   </div>
   
@@ -81,7 +91,6 @@ export default {
         sl:'可穿揽',
         cl:''
       }],
-      
     }
   },
   watch:{},
@@ -99,6 +108,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  .map-content {
+    background-color: #fff;
+    padding: 10px;
+  }
   .map {
     padding: 0;
     margin: 0;
@@ -106,13 +119,16 @@ export default {
     height: 500px;
   }
   .box{
-    padding: 20px;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
     background: #fff;
     .search-span{
       padding-right:10px;
     }
     .top-input{
       margin-right:30px;
+      width: 140px;
     }
     .btn.el-button--primary {
       color: #fff;

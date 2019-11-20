@@ -110,8 +110,26 @@ div:focus{
   color: $color;
 }
 .top-search {
-  margin-bottom: 20px;
-  margin-left: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px auto;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      width: 60px;
+      display: inline-block;
+    }
+    .search-label {
+      width: 50px;
+    }
+    &:last-child {
+      display: block;
+    }
+  }
 }
 .container{
   padding: 20px;
