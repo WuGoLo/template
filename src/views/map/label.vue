@@ -59,6 +59,7 @@ export default {
   props:{},
   data(){
     return {
+      Esrimap: null,
       listQuery:{
         name:'北京移动',
         qd:'苏州街',
@@ -87,9 +88,11 @@ export default {
   computed:{},
   created(){},
   mounted(){
-    Esrimap.init(this.$refs.mapdom)
+    this.Esrimap = Esrimap.initMap(this.$refs.mapdom)
   },
-  methods:{},
+  methods:{
+    
+  },
   beforeDestroy() {
 
   }
