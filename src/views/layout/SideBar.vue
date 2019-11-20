@@ -7,9 +7,9 @@
     </div>
     <el-menu
       ref="sideMenu"
-      router unique-opened 
-      class="el-menu-vertical-demo slide" 
-      text-color="#fff" 
+      router unique-opened
+      class="el-menu-vertical-demo slide"
+      text-color="#fff"
       active-text-color="#6c85f7"
       :default-active="activeMenu"
       @open="setMenuOpen"
@@ -60,7 +60,7 @@ export default {
           ],
           "hasSub": 1,
           "id": 21,
-          "name": "地图标注",
+          "name": "地图管理",
           "path": "/map",
           "showMenu": 1,
           "url": null
