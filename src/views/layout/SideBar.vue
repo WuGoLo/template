@@ -22,7 +22,10 @@
 
       <el-submenu :index="'' + i" v-for="(item, i) in menuArr" :key="i" v-show="item.sonLength == 1">
         <template slot="title">
-          <i class="el-icon-menu"></i>
+          <!-- <i class="el-icon-menu"></i> -->
+          <span class="icon-box">
+            <img :src="item.icon" alt="">
+          </span>
           <span>{{item.name}}</span>
         </template>
         <el-menu-item-group v-for="(item2, j) in item.children" :key="j">
@@ -63,7 +66,8 @@ export default {
           "name": "地图管理",
           "path": "/map",
           "showMenu": 1,
-          "url": null
+          "url": null,
+          "icon": "./static/01-1.png"
         },
         {
           "access": "resource_access",
@@ -84,7 +88,8 @@ export default {
           "name": "穿缆申请管理",
           "path": "/resource",
           "showMenu": 1,
-          "url": null
+          "url": null,
+          "icon": "./static/02-1.png"
         },
         {
           "access": "sales_access",
@@ -105,7 +110,8 @@ export default {
           "name": "销售订单管理",
           "path": "/sales",
           "showMenu": 1,
-          "url": null
+          "url": null,
+          "icon": "./static/03-1.png"
         },
         {
           "access": "customer_access",
@@ -126,7 +132,8 @@ export default {
           "name": "客户管理",
           "path": "/customer",
           "showMenu": 1,
-          "url": null
+          "url": null,
+          "icon": "./static/04-1.png"
         },
         {
           "access": "user_access",
@@ -147,7 +154,8 @@ export default {
           "name": "用户管理",
           "path": "/user",
           "showMenu": 1,
-          "url": null
+          "url": null,
+          "icon": "./static/05-1.png"
         }
       ],
       breadArr: [],
@@ -209,6 +217,18 @@ export default {
   }
   img {
     display: inline-block;
+  }
+}
+.icon-box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 10px;
+  margin-right: 4px;
+  img {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
   }
 }
 </style>
