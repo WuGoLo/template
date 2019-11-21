@@ -18,29 +18,25 @@
           <span>{{scope.$index+1}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" width="250px" label="用户名称">
+      <el-table-column align="center" label="用户名称">
         <template slot-scope="scope">
-          <span>{{scope.row.user}}</span>
+          <span>{{scope.row.username}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" width="250px" label="项目名称">
+      <el-table-column align="center" label="密码">
         <template slot-scope="scope">
-          <span>{{scope.row.name}}</span>
+          <span>{{scope.row.pwd}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="管段">
+      <el-table-column align="center" label="状态">
         <template slot-scope="scope">
-          <span>{{scope.row.pipe}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" width="250px" label="数量(子孔)">
-        <template slot-scope="scope">
-          <span>{{scope.row.num}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" width="250px" label="存量(子孔)">
-        <template slot-scope="scope">
-          <span>{{scope.row.stock}}</span>
+            <el-switch
+              size="small"
+              v-model="scope.row.STATE"
+              active-color="#009A52"
+              inactive-color="#DCDFE6"
+              @change="getUserState(scope.row)"
+            ></el-switch>
         </template>
       </el-table-column>
     </el-table>
@@ -65,29 +61,21 @@ export default {
   data(){
     return {
       tableData: [{
-          user: 'JK787989',
-          name: '海淀黄庄2-2',
-          pipe: '上海市普陀区金沙江路 1518 弄',
-          num:'可穿揽',
-          stock:'测试数据'
+          username: '测试名1',
+          pwd: '123456',
+          STATE:'1'
         }, {
-          user: 'SY89889',
-          name: '苏州街1-1',
-          pipe: '上海市普陀区金沙江路 1518 弄',
-          num:'可穿揽',
-          stock:'测试数据'
+          username: '测试名2',
+          pwd: '123456',
+          STATE:'0'
         }, {
-          user: 'KLHU23429',
-          name: '王小虎',
-          pipe: '上海市普陀区金沙江路 1519 弄',
-          num:'可穿揽',
-          stock:'测试数据'
+          username: '测试名3',
+          pwd: '123456',
+          STATE:'1'
         }, {
-          user: 'JK787989',
-          name: '海淀黄庄2-2',
-          pipe: '上海市普陀区金沙江路 1516 弄',          
-          num:'可穿揽',
-          stock:'测试数据'
+          username: '测试名4',
+          pwd: '123456',
+          STATE:'1'
         }],
         listQuery:{
           customer:'',
