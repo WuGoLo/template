@@ -132,14 +132,17 @@ export default {
     }
     .btn.el-button--primary {
       color: #fff;
-      background: #127714;
-      border: 1px solid #127714;
+      background: #009a52;
+      border: 1px solid #009a52;
     }
     .btn.el-button--primary:hover {
       color: #fff;
-      background: #009a52;
-      border: 1px solid #009a52;
-}
+      background: #127714;
+      border: 1px solid #127714;
+    }
   }
-
+//009a52  //127714
+.el-input.is-disabled .el-input__inner {
+  color:#333;
+}
 </style>
