@@ -23,7 +23,7 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:300px;margin-bottom:30px;height:40px;margin-left:15px;border-radius: 40px;" @click.native.prevent="handleLogin">登录</el-button>
+      <el-button :loading="loading" type="primary" style="margin-top: 26px;width:300px;height:46px;margin-left:15px;border-radius: 40px;" @click.native.prevent="handleLogin">登录</el-button>
     </el-form>
 
   </div>
@@ -99,12 +99,13 @@ $color:#2b50ef;
   width: 100%;
   background-color: $bg;
   .login-form {
-    position: absolute;
-    left: 0;
-    right: 0;
+    margin: 0 auto; /*水平居中*/
+    position: relative;
+    top: 50%; /*偏移*/
+    transform: translateY(-50%);
     width: 400px;
+    height: 410px;
     padding: 35px 35px 15px 35px;
-    margin: 120px auto;
     background-color: #fff;
   }
   .svg-container {
@@ -145,5 +146,8 @@ $color:#2b50ef;
     cursor: pointer;
     user-select: none;
   }
+}
+.el-form-item {
+  margin-bottom: 10px;
 }
 </style>
