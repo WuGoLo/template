@@ -24,7 +24,7 @@
           <el-button type="primary" size="mini" @click="getUserList()">保存</el-button>
         </div>
       </div>
-      <el-table :data="tableData" border  stripe  row-key="id"  fit  highlight-current-row  :header-cell-style="{'background-color': '#aab9f9','color': 'rgb(103, 194, 58)',}">
+      <el-table :data="tableData" border  stripe  row-key="id"  fit  highlight-current-row  :header-cell-style="{'background-color': '#99c0de','color': 'rgb(103, 194, 58)',}">
         <el-table-column label="序号" width="60" align="center">
           <template slot-scope="scope">
             <span>{{scope.$index+1}}</span>
@@ -141,8 +141,4 @@ export default {
       border: 1px solid #127714;
     }
   }
-//009a52  //127714
-.el-input.is-disabled .el-input__inner {
-  color:#333;
-}
 </style>
