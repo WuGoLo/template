@@ -10,7 +10,7 @@
       router unique-opened
       class="el-menu-vertical-demo slide"
       text-color="#fff"
-      active-text-color="#6c85f7"
+      active-text-color="#fff"
       :default-active="activeMenu"
       @open="setMenuOpen"
       @select="setActiveMenu"

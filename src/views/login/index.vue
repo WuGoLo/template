@@ -98,6 +98,9 @@ $color:#2b50ef;
   height: 100%;
   width: 100%;
   background-color: $bg;
+  background-image: url("../../assets/images/bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   .login-form {
     margin: 0 auto; /*水平居中*/
     position: relative;

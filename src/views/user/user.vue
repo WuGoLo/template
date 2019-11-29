@@ -12,7 +12,7 @@
       >查询</el-button>
     </div>
 
-    <el-table :data="tableData" border  stripe  style="width: 100%"  row-key="id"  fit  highlight-current-row  :header-cell-style="{'background-color': '#aab9f9','color': 'rgb(103, 194, 58)',}">
+    <el-table :data="tableData" border  stripe  style="width: 100%"  row-key="id"  fit  highlight-current-row  :header-cell-style="{'background-color': '#99c0de','color': 'rgb(103, 194, 58)',}">
       <el-table-column label="序号" width="60" align="center">
         <template slot-scope="scope">
           <span>{{scope.$index+1}}</span>

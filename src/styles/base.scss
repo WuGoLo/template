@@ -1,6 +1,6 @@
-$color: #4565f1;
-$btn-bgcolor: #4565f1;
-$btn-bgcolor_h: #2b50ef;//2b50ef //4565f1
+$color: #0062ac;
+$btn-bgcolor: #0062ac;
+$btn-bgcolor_h: #014a81;// //0062ac
 $font-color:#333;
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
@@ -37,7 +37,7 @@ div,a,ul,li {
   color: #FFF;
 }
 .el-table--striped .el-table__body tr.el-table__row--striped td {
-  background: #e9edfd;
+  background: #e5eff7;
 }
 .el-input__inner:hover {
   border-color: $btn-bgcolor;
@@ -155,4 +155,7 @@ div,a,ul,li {
 .el-tabs--card>.el-tabs__header .el-tabs__nav {
   border: 1px solid #d3d3d4;
   border-bottom: 1px solid #fff;
+}
+.el-input.is-disabled .el-input__inner {
+  color: #333;
 }

@@ -9,18 +9,18 @@ $color: #2b50ef;
 // element.style默认样式修改
 #app .el-container .el-aside {
   width: 224px !important;
-  background-color: #212c40;
+  background-color: #0062ac;
 }
 .el-menu-vertical-demo {
   border-right: none;
 }
 .el-submenu__title {
-  background-color: #212c40 !important;
+  background-color: #0062ac !important;
   &:hover {
     i {
       color: #fff;
     }
-    background-color: #263e98 !important;
+    background-color: #015a9d !important;
   }
 }
 .el-menu-item-group__title {
@@ -33,16 +33,16 @@ $color: #2b50ef;
 .el-submenu .el-menu-item {
   height: 36px;
   line-height: 36px;
-  background-color: #121823 !important;
+  background-color: #6371ec !important;
   &:hover {
     i {
       color: #fff;
     }
-    background-color:#121823 !important;
+    background-color:#6371ec !important;
   }
 }
 .el-submenu .el-menu-item.is-active {
-  &:hover { i { color:#6c85f7; } }
+  &:hover { i { color:#6371ec; } }
 }
 // 面包屑
 .el-breadcrumb {
