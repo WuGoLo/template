@@ -13,43 +13,24 @@ export default {
       'esri/views/MapView',
       'esri/layers/support/TileInfo',
       'esri/layers/WebTileLayer',
-      // 'esri/layers/TiledMapServiceLayer',
-      // 'esri/SpatialReference',
-      // 'esri/geometry/Extent',
-      // 'esri/geometry/Point',
-      // 'esri/symbols/PictureMarkerSymbol',
-      // 'esri/layers/FeatureLayer',
-      // 'esri/tasks/LengthsParameters',
-      // 'esri/tasks/AreasAndLengthsParameters',
-      // 'esri/tasks/GeometryService',
-      // 'esri/toolbars/draw',
-      // 'esri/InfoTemplate',
-      // 'esri/graphic',
-      // 'esri/layers/GraphicsLayer',
-      // "dojo/domReady!"
+      'esri/layers/Layer',
+      "esri/config",
+      'esri/layers/ElevationLayer',
+      "dojo/domReady!"
     ],options)
     .then(([
       Map, 
       MapView,
       TileInfo,
       WebTileLayer,
-      // Point,
-      // PictureMarkerSymbol,
-      // FeatureLayer,
-      // LengthsParameters,
-      // AreasAndLengthsParameters,
-      // GeometryService,
-      // Draw,
-      // InfoTemplate,
-      // Graphic,
-      // GraphicsLayer,
-      // TiledMapServiceLayer,
-      // SpatialReference,
-      // Extent,
+      Layer,
+      esriConfig,
+      ElevationLayer
     ]) => {
       // let esriAPI = {
 
       // }
+      esriConfig.request.corsEnabledServers.push("localhost:6080");//设置地图服务器已允许跨域
       // 我们是通过瓦片形式加载天地图的
       // 天地图根据投影又分为两种：墨卡托和经纬度
       // 经纬度投影的情况下比较复杂，且需要注意的地方比较多，加载过程如下
@@ -114,6 +95,8 @@ export default {
         tileInfo: tileInfo
       })
 
+      // 加载server地图
+
       // 创建地图，不设置底图，如果设置底图会造成坐标系无法被转换成 ESPG:4326 (WGS1984)
       var map = new Map({
         spatialReference : {
@@ -123,7 +106,12 @@ export default {
           baseLayers: [layer, layer_anno]
         }
       });
-
+      var elevLyr = new ElevationLayer({
+        // Custom elevation service
+        url: "http://localhost:6080/arcgis/rest/services/beixinjichu/北信基础/MapServer"
+      });
+      // Add elevation layer to the map's ground.
+      map.ground.layers.add(elevLyr);
       // 创建MapView
       var view = new MapView({
         container: mapdom,
