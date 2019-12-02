@@ -63,7 +63,6 @@
 </template>
 
 <script>
-import Esrimap from './basemap'
 export default {
   components:{},
   props:{},
