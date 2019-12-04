@@ -1,6 +1,6 @@
 <template>
   <div class="map-content">
-    <div ref="mapdom" class="map"></div>
+    <div ref="mapdom" id="map" class="map" @click="getPoint"></div>
     <div class="box">
       <div class="top-search">
         <div>
@@ -59,11 +59,11 @@
       </el-table>
     </div>
   </div>
-  
 </template>
 
 <script>
-import Esrimap from './basemap'
+import baseMap from './basemap'
+import L from 'leaflet';
 export default {
   components:{},
   props:{},
@@ -97,10 +97,18 @@ export default {
   computed:{},
   created(){},
   mounted(){
-    this.Esrimap = Esrimap.initMap(this.$refs.mapdom)
+    baseMap.init('map')
+    var host = window.isLocal ? window.server : "http://iclient.supermap.io";
+    var url = host + "/iserver/services/map-jingjin/rest/maps/京津地区地图";
+    // var host = window.isLocal ? window.server : "http://support.supermap.com.cn:8090";
+    // var url = host + "/iserver/services/map-china400/rest/maps/China";
+    // var url = "http://172.19.1.183:8090/iserver/services/map-abc2/rest/maps/ditu"
+    L.supermap.tiledMapLayer(url).addTo(baseMap.getMap());  // baseMap.getMap() 是基础底图
   },
   methods:{
-    
+    getPoint() {
+      console.log(baseMap.getMousePoint());
+    }
   },
   beforeDestroy() {
 
@@ -117,6 +125,7 @@ export default {
     margin: 0;
     width: 100%;
     height: 500px;
+    overflow: hidden;
   }
   .box{
     width: 100%;
