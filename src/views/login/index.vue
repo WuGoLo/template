@@ -73,16 +73,16 @@ export default {
       }
     },
     handleLogin() {
-      login().then(res => {
-        console.log(res);
-        if(res.data.code == 1) {
-          this.$router.push('map/maplabel')
-            window.sessionStorage.setItem(
-              "username",
-              this.loginForm.username
-            );
-        }
-      })
+     login().then(res => {
+       console.log(res);
+       if(res.data.code == 1) {
+         this.$router.push('map/maplabel')
+           window.sessionStorage.setItem(
+             "username",
+             this.loginForm.username
+           );
+       }
+     })
     }
 
   }
