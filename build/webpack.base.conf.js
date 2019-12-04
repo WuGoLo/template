@@ -53,8 +53,15 @@ module.exports = {
         include: [
           resolve('src'),
           resolve('test'),
-          resolve('node_modules/webpack-dev-server/client')
-        ]
+          resolve('node_modules/webpack-dev-server/client'),
+          path.resolve(__dirname, "node_modules/_@supermap_iclient-common@10.0.0@@supermap/iclient-common"),
+          path.resolve(__dirname, "node_modules/_@supermap_iclient-leaflet@10.0.0@@supermap/iclient-leaflet"),
+          // 由于iClient对Elasticsearch的API进行了封装而Elasticsearch也使用了ES6的语法
+          path.resolve(__dirname, "node_modules/_elasticsearch@13.0.1@elasticsearch"),
+        ],
+        options: {
+          presets: ['env']
+        }
       },
       {
         test: /\.svg$/,
