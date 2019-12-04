@@ -6,8 +6,11 @@ import 'normalize.css/normalize.css' // 一个css的标准化样式表，为了�
 
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
 import '@/styles/index.scss' // global css
+
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
+import '@supermap/iclient-leaflet'
 
 import App from './App'
 import router from './router'
@@ -16,7 +19,7 @@ import store from './store'
 import * as filters from './filters' // 全局引入过滤器
 
 // import './mock/index'
-
+Vue.use(L)
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
 })

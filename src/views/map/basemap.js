@@ -2,26 +2,20 @@ import L from 'leaflet';
 import '@supermap/iclient-leaflet';
 export default {
   map: {},
-	point: {},
-	options: {},
+  point: {},
   init(id) {
 			let _this = this
-			//自定义比例尺
-			var scaleDenominators = [4000000, 2000000, 1000000, 500000, 250000, 125000];
-			var origin = [114.59, 42.31];
-			//leaflet CRS投影设置
-			var crs = L.Proj.CRS("EPSG:4326", {
-					origin: origin,
-					scaleDenominators: scaleDenominators
-			});
       const map = L.map(id, {
-				crs: crs,
-				// center: [40.310, 116.750],
-				center: [39.79, 116.85],
-        maxZoom: 5,
-        zoom: 0
-      })
-      this.map = map
+				crs: L.CRS.EPSG4326,
+				center: [40.310, 116.750],
+        maxZoom: 18,
+        zoom: 8
+			})
+			var url = "http://172.19.1.183:8090/iserver/services/map-abc2/rest/maps/ditu";
+    	L.supermap.tiledMapLayer(url).addTo(map);  // baseMap.getMap() 是基础底图
+			this.map = map
+			// 添加控件
+			L.control.scale().addTo(map);
       map.on('mousemove', function (e) {
         _this.point = map.layerPointToLatLng(e.layerPoint)
       })

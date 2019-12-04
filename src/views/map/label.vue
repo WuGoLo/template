@@ -98,12 +98,10 @@ export default {
   created(){},
   mounted(){
     baseMap.init('map')
-    var host = window.isLocal ? window.server : "http://iclient.supermap.io";
-    var url = host + "/iserver/services/map-jingjin/rest/maps/京津地区地图";
     // var host = window.isLocal ? window.server : "http://support.supermap.com.cn:8090";
     // var url = host + "/iserver/services/map-china400/rest/maps/China";
-    // var url = "http://172.19.1.183:8090/iserver/services/map-abc2/rest/maps/ditu"
-    L.supermap.tiledMapLayer(url).addTo(baseMap.getMap());  // baseMap.getMap() 是基础底图
+    // var url = "http://172.19.1.183:8090/iserver/services/map-abc2/rest/maps/ditu";
+    // L.supermap.tiledMapLayer(url).addTo(baseMap.getMap());  // baseMap.getMap() 是基础底图
   },
   methods:{
     getPoint() {
