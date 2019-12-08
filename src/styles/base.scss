@@ -37,7 +37,7 @@ div,a,ul,li {
   color: #FFF;
 }
 .el-table--striped .el-table__body tr.el-table__row--striped td {
-  background: #e5eff7;
+  background: #dce9f4;
 }
 .el-input__inner:hover {
   border-color: $btn-bgcolor;
@@ -158,4 +158,7 @@ div,a,ul,li {
 }
 .el-input.is-disabled .el-input__inner {
   color: #333;
+}
+.el-menu-item-group .el-menu-item {
+  padding-left: 44px !important;
 }

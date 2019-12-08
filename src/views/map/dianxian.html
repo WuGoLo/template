@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>    
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />     <title></title>    
+  <script src="json_parse.js"></script>    
+  <script src="toJSON.js"></script>    
+  <script src="libs/SuperMap.Include.js"></script>    
+  <script
+    type="text/javascript">            
+    var selectStyle = { fillColor: "#ffcc33", strokeColor: "#ccff99", strokeWidth: 2, graphZIndex: 1 }; 
+    var map, layer, vectorLayer, control, selectFeature;         // 设置访问的GIS服务地址         
+    var url = "http://localhost:8090/iserver/services/map-ChinaTestWorkPlace/rest/maps/ChinaTest";         
+    function GetMap() {             // 创建地图对象             
+      map = new SuperMap.Map("map");             
+      //control = new SuperMap.Control.MousePosition();     
+      //该控件显示鼠标移动时，所在点的地理坐标。             
+      //map.addControl(control);  //添加控件             
+      // 创建图层对象             
+      layer = new SuperMap.Layer.TiledDynamicRESTLayer("World", url, 
+      { transparent: true, cacheEnabled: true }, 
+      { maxResolution: "auto" });             
+      layer.events.on({ "layerInitialized": addLayer });             
+      vectorLayer = new SuperMap.Layer.Vector();         }         
+      // 加载图层         
+      function addLayer() {   // 向Map添加图层             
+        map.addLayers([layer, vectorLayer]);             
+        map.setCenter(new SuperMap.LonLat(116.409749, 39.912344), 1);
+
+      //添加大头针标记             
+      var markerlayers = new SuperMap.Layer.Markers("Markers");             
+      map.addLayer(markerlayers);             
+      var marker = new SuperMap.Marker(new SuperMap.LonLat(116.409749, 39.912344));             
+      markerlayers.addMarker(marker);
+
+      //例如点击marker弹出popup             
+      marker.events.on({                 
+        "mouseover": openInfoWin,                 
+        "mouseout": closeInfoWin,                 
+        "click": clickHandler,                 
+        "scope": marker   //   还不清楚这行代码是什么意思！  如果有大神赐教，我不甚感激！             });
+
+      //  添加两条线段             
+      var points1 = [new SuperMap.Geometry.Point(116.409749, 39.912344), 
+      new SuperMap.Geometry.Point(114.358451, 38.29168)];             
+      var points2 = [new SuperMap.Geometry.Point(116.409749, 39.912344), new SuperMap.Geometry.Point(117.155649, 39.166468)];             var riverLine1 = new SuperMap.Geometry.LineString(points1);             var riverLine2 = new SuperMap.Geometry.LineString(points2);             lineFeature1 = new SuperMap.Feature.Vector(riverLine1);             lineFeature2 = new SuperMap.Feature.Vector(riverLine2);             vectorLayer.addFeatures([lineFeature1, lineFeature2]);
+
+      selectFeature = new SuperMap.Control.SelectFeature(vectorLayer, {
+         onSelect: onFeatureSelect, onUnselect: onUnFeatureSelect, hover: true }); 
+      selectFeature.repeat = true; selectFeature.toggle = true; 
+      map.addControl(selectFeature); selectFeature.activate();         }         
+      var infowin = null; function openInfoWin() { closeInfoWin(); 
+        var marker = this; var lonlat = marker.lonlat; 
+        var contentHTML = "<div style='font-size:.8em; opacity: 0.8; overflow-y:hidden;'>"; 
+          contentHTML += "<div>Hello Word</div></div>"; 
+          var popup = new SuperMap.Popup.FramedCloud("popwin", new SuperMap.LonLat(lonlat.lon, lonlat.lat), null, contentHTML, null, true); infowin = popup; map.addPopup(popup); } function closeInfoWin() { if (infowin) { try { infowin.hide(); infowin.destroy(); } catch (e) { } } } function clickHandler() { closeInfoWin(); var marker = this; alert("Hello Word，我被点击了！"); }
+
+      function onUnFeatureSelect(feature) { feature.style = style; vectorLayer.redraw(); } function onFeatureSelect(feature) { var f = new SuperMap.Feature.Vector; f.geometry = feature.geometry.clone(); f.style = style; vectorLayer.addFeatures(f); }     </script>
+</head>
+
+<body οnlοad="GetMap()">        <div id="map"
+    style="height: 640px; width: 720px; border: 1px solid red; margin-left: auto; margin-right: auto;"></div>
+</body>
+
+</html>

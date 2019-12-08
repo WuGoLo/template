@@ -61,6 +61,7 @@ export default {
   }
   .nav-header {
     z-index: 999;
+    border-bottom: 1px solid #e9ecf3;
     // box-shadow: 2px 0px 4px rgb(97, 97, 97);
   }
   .main-box {

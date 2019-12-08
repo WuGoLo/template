@@ -41,6 +41,9 @@ $color: #2b50ef;
     background-color:#6371ec !important;
   }
 }
+.el-submenu.is-active .el-submenu__title {
+  background-color: #015a9d;
+}
 .el-submenu .el-menu-item.is-active {
   &:hover { i { color:#6371ec; } }
 }

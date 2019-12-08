@@ -40,7 +40,7 @@
       <el-table-column align="center" label="开井证">
         <template slot-scope="scope">
           <div style="text-align: center">
-            <el-button  type="primary"  size="mini"  class="handle-edit" v-show="scope.row.zt==3"  @click="handDow(scope.row)">
+            <el-button  type="primary"  size="mini"  class="handle-edit" v-if="scope.row.zt==3"  @click="handDow(scope.row)">
               <i class="el-icon-bottom"></i> 下载</el-button>          
           </div>
         </template>

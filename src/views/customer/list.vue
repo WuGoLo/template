@@ -18,12 +18,12 @@
           <span>{{scope.$index+1}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" width="250px" label="客户名称">
+      <el-table-column align="center" label="客户名称">
         <template slot-scope="scope">
           <span>{{scope.row.customer}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" width="250px" label="项目名称">
+      <el-table-column align="center" label="项目名称">
         <template slot-scope="scope">
           <span>{{scope.row.name}}</span>
         </template>
@@ -33,12 +33,12 @@
           <span>{{scope.row.pipe}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" width="250px" label="数量(子孔)">
+      <el-table-column align="center" label="数量(子孔)">
         <template slot-scope="scope">
           <span>{{scope.row.num}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" width="250px" label="存量(子孔)">
+      <el-table-column align="center" label="存量(子孔)">
         <template slot-scope="scope">
           <span>{{scope.row.stock}}</span>
         </template>

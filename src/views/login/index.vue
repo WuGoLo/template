@@ -11,13 +11,13 @@
         <span class="svg-container svg-container_login">
           <img src="@/assets/images/denglu-1.png">
         </span>
-        <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="username" />
+        <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="登录名" />
       </el-form-item>
       <el-form-item prop="password">
         <span class="svg-container svg-container_login">
           <img src="@/assets/images/denglu-2.png">
         </span>
-        <el-input :type="passwordType" v-model="loginForm.password" name="password" auto-complete="on" placeholder="password" @keyup.enter.native="handleLogin" />
+        <el-input :type="passwordType" v-model="loginForm.password" name="password" auto-complete="on" placeholder="密码" @keyup.enter.native="handleLogin" />
         <span class="show-pwd" @click="showPwd">
           <i class="el-icon-view"/>
         </span>
@@ -40,9 +40,9 @@ export default {
         password: 'admin123'
       },
       loginRules: {
-        username: [{ required: true, message: '管理员账户不允许为空', trigger: 'blur' }],
+        username: [{ required: true, message: '请输入登录名', trigger: 'blur' }],
         password: [
-          { required: true, message: '管理员密码不允许为空', trigger: 'blur' }
+          { required: true, message: '请输入密码', trigger: 'blur' }
         ]
       },
       passwordType: 'password',
@@ -73,16 +73,23 @@ export default {
       }
     },
     handleLogin() {
-     login().then(res => {
-       console.log(res);
-       if(res.data.code == 1) {
-         this.$router.push('map/maplabel')
-           window.sessionStorage.setItem(
-             "username",
-             this.loginForm.username
-           );
-       }
-     })
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          if (this.rememberMe) {
+            this.loginForm.rememberMe = 1;
+          } else {
+            this.loginForm.rememberMe = 0;
+          }
+        this.$router.push('map/maplabel')
+          window.sessionStorage.setItem(
+            "username",
+            this.loginForm.username
+          );
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     }
 
   }
@@ -149,8 +156,5 @@ $color:#2b50ef;
     cursor: pointer;
     user-select: none;
   }
-}
-.el-form-item {
-  margin-bottom: 10px;
 }
 </style>

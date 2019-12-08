@@ -52,7 +52,13 @@ const constantRouterMap = [
         path: 'maplabel',
         component: () => import('@/views/map/label'),
         meta: { title: '地图标注', noCache: true }
-      }
+      },
+      {
+        name: 'mapDemo',
+        path: 'mapdemo',
+        component: () => import('@/views/map/demo'),
+        meta: { title: '地图demo', noCache: true }
+      },
 
     ]
   },

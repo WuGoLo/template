@@ -16,6 +16,11 @@
           <span>{{scope.row.sqdw}}</span>
         </template>
       </el-table-column>
+      <el-table-column align="center" label="穿缆单位">
+        <template slot-scope="scope">
+          <span>{{scope.row.cldw}}</span>
+        </template>
+      </el-table-column>
       <el-table-column align="center" label="起点">
         <template slot-scope="scope">
           <span>{{scope.row.qd}}</span>

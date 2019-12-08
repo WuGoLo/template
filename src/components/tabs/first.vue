@@ -52,15 +52,16 @@
           <span>{{scope.row.clrq}}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="操作">
+      <el-table-column align="center" label="操作" width="160">
         <template slot-scope="scope">
-          <div style="text-align: center">
-            <el-button  type="primary"  size="mini"  class="handle-edit" v-show="scope.row.zt==1 ||scope.row.zt==4"  @click="handEdit(scope.row)">
+            <el-button  type="primary"  size="mini"  class="handle-edit" v-if="scope.row.zt==1 ||scope.row.zt==4"  @click="handEdit(scope.row)">
               <i class="el-icon-edit-outline"></i> 编辑
             </el-button>
-            <el-button  type="primary"  size="mini"  class="handle-edit" v-show="scope.row.zt==3"  @click="handDow(scope.row)">开井证下载</el-button>
-            <el-button  type="primary"  size="mini"  class="handle-edit" v-show="scope.row.zt==6"  @click="handDowOrder(scope.row)">下载销售订单</el-button>
-          </div>
+            <el-button  type="primary"  size="mini"  class="handle-edit" v-if="scope.row.zt==3"  @click="handDow(scope.row)">开井证下载</el-button>
+            <el-button  type="primary"  size="mini"  class="handle-edit" v-if="scope.row.zt==6"  @click="handDowOrder(scope.row)">下载销售订单</el-button>
+            <!--  -->
+            <!-- 
+             -->
         </template>
       </el-table-column>
     </el-table>

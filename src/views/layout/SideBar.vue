@@ -60,6 +60,16 @@ export default {
               "showMenu": 1,
               "url": null
             },
+            {
+              "access": "upload_access",
+              "children": null,
+              "hasSub": 0,
+              "id": 211,
+              "name": "地图demo",
+              "path": "/map/mapdemo",
+              "showMenu": 1,
+              "url": null
+            },
           ],
           "hasSub": 1,
           "id": 21,
@@ -230,5 +240,12 @@ export default {
     width: 16px;
     height: 16px;
   }
+}
+.is-opened .el-submenu-title {
+  color: #fff;
+  i {
+    color: #fff;
+  }
+  background-color: #015a9d !important;
 }
 </style>

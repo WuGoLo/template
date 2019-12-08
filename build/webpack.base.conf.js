@@ -54,10 +54,13 @@ module.exports = {
           resolve('src'),
           resolve('test'),
           resolve('node_modules/webpack-dev-server/client'),
-          path.resolve(__dirname, "node_modules/_@supermap_iclient-common@10.0.0@@supermap/iclient-common"),
-          path.resolve(__dirname, "node_modules/_@supermap_iclient-leaflet@10.0.0@@supermap/iclient-leaflet"),
           // 由于iClient对Elasticsearch的API进行了封装而Elasticsearch也使用了ES6的语法
-          path.resolve(__dirname, "node_modules/_elasticsearch@13.0.1@elasticsearch"),
+          // path.resolve(__dirname, "node_modules/_@supermap_iclient-common@10.0.0@@supermap/iclient-common"),
+          // path.resolve(__dirname, "node_modules/_@supermap_iclient-leaflet@10.0.0@@supermap/iclient-leaflet"),
+          // path.resolve(__dirname, "node_modules/_elasticsearch@13.0.1@elasticsearch"),
+          path.resolve(__dirname, "node_modules/@supermap/iclient-common"),
+          path.resolve(__dirname, "node_modules/@supermap/iclient-leaflet"),
+          path.resolve(__dirname, "node_modules/elasticsearch"),
         ],
         options: {
           presets: ['env']
@@ -72,7 +75,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg|cur)(\?.*)?$/,
         loader: 'url-loader',
         exclude: [resolve('src/icons')],
         options: {
@@ -81,7 +84,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac|cur)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
@@ -89,7 +92,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        test: /\.(woff2?|eot|ttf|otf|cur)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
